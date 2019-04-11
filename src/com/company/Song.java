@@ -1,16 +1,30 @@
 package com.company;
 
 public class Song {
+    private String id;
     private String name;
+    private String score;
+
     private Double beforeRank;
     private Integer afterRank;
     private Double newRank;
 
-    public Song(String name, Double beforeRank, Integer afterRank) {
+
+    public Song(String id, String name, String score, Double beforeRank, Integer afterRank ) {
+        this.id = id;
         this.name = name;
+        this.score = score;
         this.beforeRank = beforeRank;
         this.afterRank = afterRank;
         this.newRank = null;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public String getScore() {
+        return score;
     }
 
     public String getName() {
