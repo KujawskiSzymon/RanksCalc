@@ -51,28 +51,28 @@ public class Main {
         }
         List<Song> songs = new ArrayList<>();
 
-        //
-        String name;
-        String id;
-        String score;
-        Double rank;
-        Integer afterRank;
-        String line = null;
-        try {
-            line = songDao.reader.readLine();
-        } catch (IOException e) {
-            e.getMessage();
-        } catch (NullPointerException e) {
-            e.getMessage();
-        }
-        while (line != null) {
-            StringTokenizer tokenizer = new StringTokenizer(line, "|");
-            id = tokenizer.nextToken().trim();
-            name = tokenizer.nextToken().trim();
-            rank = Double.parseDouble(tokenizer.nextToken());
-            score = tokenizer.nextToken();
+         String name;
+                String id;
+                String score;
+                Double rank;
+                Double afterRank;
+                String line = null;
+                try {
+                    line = songDao.reader.readLine();
+                } catch (IOException e) {
+                    e.getMessage();
+                } catch (NullPointerException e) {
+                    e.getMessage();
+                }
+                while (line != null) {
+                    StringTokenizer tokenizer = new StringTokenizer(line, "|");
+                    id = tokenizer.nextToken().trim();
+                    name = tokenizer.nextToken().trim();
+                    rank = Double.parseDouble(tokenizer.nextToken());
+                    score = tokenizer.nextToken();
 
-            afterRank = Integer.parseInt(tokenizer.nextToken());
+                    afterRank = Double.parseDouble(tokenizer.nextToken());
+
             Song song = new Song(id, name, score, rank, afterRank);
             songs.add(song);
             try {
@@ -93,24 +93,24 @@ public class Main {
         Calc calc = new Calc(songs, srRank);
         List<SongAfter> songAfters = calc.LeagueCalc();
 
-        PrintWriter writer = null;
+
+        PrintWriter writer=null;
         try {
             writer = new PrintWriter("wyniki.txt");
         } catch (FileNotFoundException ex) {
             ex.getMessage();
         }
 
-        try {
-            save(songAfters, writer);
-        } catch (IOException ex) {
-            ex.getMessage();
-        }
 
+            save(songAfters, writer);
         writer.close();
+
+
+
         System.out.println("Wyniki zostały zapisane w pliku wyniki.txt");
 
     }
-        public static void save (List < SongAfter > songAfters, PrintWriter writer) throws IOException {
+        public static void save (List < SongAfter > songAfters, PrintWriter writer)  {
             for (int i = 0; i < songAfters.size(); i++) {
                 writer.write(songAfters.get(i).getName() + " " + songAfters.get(i).getRank() + "\n");
                 writer.println();

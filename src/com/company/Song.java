@@ -6,11 +6,11 @@ public class Song {
     private String score;
 
     private Double beforeRank;
-    private Integer afterRank;
+    private Double afterRank;
     private Double newRank;
 
 
-    public Song(String id, String name, String score, Double beforeRank, Integer afterRank ) {
+    public Song(String id, String name, String score, Double beforeRank, Double afterRank) {
         this.id = id;
         this.name = name;
         this.score = score;
@@ -35,7 +35,7 @@ public class Song {
         return beforeRank;
     }
 
-    public Integer getAfterRank() {
+    public Double getAfterRank() {
         return afterRank;
     }
 

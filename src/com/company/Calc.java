@@ -100,13 +100,39 @@ import java.util.*;
                     System.out.println(songName + "zyskał ranking " + beforeRank + " nowy: " +( beforeRank + (addRank * modifier)));
                     return beforeRank + (addRank * modifier);
                 }
-//TODO - ustawic else ifa tak jak ifa, potem exception, zrobic porzadek w Mainie
+//TODO - ustawic exception, zrobic porzadek w Mainie
             } else if ((beforeRank > afterRank) && (beforeRank - afterRank > 29)) {
-                System.out.println(songName + " stracił ranking  " + beforeRank + " nowy: " + (beforeRank -(beforeRank - afterRank) * 0.30));
+            /*    System.out.println(songName + " stracił ranking  " + beforeRank + " nowy: " + (beforeRank -(beforeRank - afterRank) * 0.30));
                 return (beforeRank - ((beforeRank - afterRank) * 0.30));
+*/
+                double subRank = ((beforeRank - afterRank) * 0.40);
+
+                if (beforeRank > avgRank) {
+                    double tmp = beforeRank;
+
+                    while (tmp > avgRank) {
+                        if (modifier < 0.30) {
+                            break;
+                        }
+                        modifier += 0.015;
+                        tmp -= 10;
+
+                    }
+
+                    return beforeRank - (subRank * modifier);
 
 
-            } else {
+                } else {
+                    double tmp = beforeRank;
+                    while (tmp <= avgRank) {
+                        modifier -= 0.01;
+                        tmp += 10;
+                    }
+                    System.out.println(songName + "stracił ranking " + beforeRank + " nowy: " +( beforeRank - (subRank * modifier)));
+                    return beforeRank + (subRank * modifier);
+
+
+            }} else {
                  System.out.println(songName + " nie zmienił rankingu ( " + beforeRank + " )");
                 return beforeRank;
             }
