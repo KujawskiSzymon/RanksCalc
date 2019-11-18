@@ -36,10 +36,7 @@ public class Main {
 
 
 
-//        System.out.println("Ustaw System:");
-//        System.out.println("Podaj liczbe 0-3 dla ligi lub cokolwiek dla ligi 4");
-//
-//        String system = scanner.next();
+
         System.out.println("Podaj ranking średni:");
         double srRank;
         try{
