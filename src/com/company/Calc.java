@@ -43,7 +43,7 @@ import java.util.*;
         double modifier = 1;
             if ((afterRank > beforeRank) && (afterRank - beforeRank > 29)) {
 
-                double addRank = ((afterRank - beforeRank) * 0.40);
+                double addRank = ((afterRank - beforeRank) * 0.25);
 
                 if (beforeRank > avgRank) {
                     double tmp = beforeRank;
@@ -73,7 +73,7 @@ import java.util.*;
             } else if ((beforeRank > afterRank) && (beforeRank - afterRank > 29)) {
 
 
-                double subRank = ((beforeRank - afterRank) * 0.40);
+                double subRank = ((beforeRank - afterRank) * 0.25);
 
                 if (beforeRank > avgRank) {
                     double tmp = beforeRank;
