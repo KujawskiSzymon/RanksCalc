@@ -36,7 +36,8 @@ public class Main {
 
 
 
-
+// rank manual
+        /*
         System.out.println("Podaj ranking średni:");
         double srRank;
         try{
@@ -46,6 +47,7 @@ public class Main {
             System.out.println("Wczytales niepoprawną wartość - ranking zostanie ustawiony na 1600");
             srRank= 1600;
         }
+        */
         List<Song> songs = new ArrayList<>();
 
          String name;
@@ -87,6 +89,13 @@ public class Main {
         } catch (NullPointerException ex) {
             ex.getMessage();
         }
+        //rank auto
+        double sum=0;
+                for(int i=0;i<songs.size();i++){
+                   sum+=songs.get(i).getBeforeRank();
+                }
+               double srRank = sum/songs.size();
+        System.out.println("Sredni ranking wynosi: "+srRank);
         Calc calc = new Calc(songs, srRank);
         List<SongAfter> songAfters = calc.LeagueCalc();
 
